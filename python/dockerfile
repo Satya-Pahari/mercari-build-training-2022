@@ -1,4 +1,19 @@
-FROM alpine
+FROM python:3
 
-# STEP4-4では以下は変更しない
-CMD ["python", "-V"]
+# RUN apk add --update python3 py3-pip
+# RUN ln -sf python 
+# # STEP4-4では以下は変更しない
+
+# CMD ["python", "-V"]
+
+WORKDIR /python
+
+COPY main.py main.py
+
+#COPY images images
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000"]
+
