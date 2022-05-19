@@ -4,7 +4,7 @@ FROM python:3
 # RUN ln -sf python 
 # # STEP4-4では以下は変更しない
 
-# CMD ["python3", "-V"]
+# CMD ["python", "-V"]
 
 WORKDIR /python
 
